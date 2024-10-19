@@ -56,3 +56,12 @@ log_cli = false
 addopts = "-v --show-capture=no -q -p no:warnings --failed-first --new-first --no-cov-on-fail -v --cov=app/ --cov-report=term-missing"
 markers = ["django_db"]
 DJANGO_SETTINGS_MODULE = "app.settings"
+
+[tool.coverage.run]
+omit = [
+    "*/urls.py",
+    "*/wsgi.py",
+    "*/asgi.py"
+]
+
+

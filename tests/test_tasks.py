@@ -1,7 +1,7 @@
 from app.tasks import run_healthchecks
 
 def test_run_healthchecks(app):
-    run_healthchecks.defer(1)
+    run_healthchecks(1)
 
 # def test_model():
     
