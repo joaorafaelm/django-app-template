@@ -70,7 +70,7 @@ class Conf(BaseSettings):
                 "class": "logging.StreamHandler",
             },
             "procrastinate": {
-                "level": "DEBUG",
+                "level": "INFO",
                 "class": "logging.StreamHandler",
                 "formatter": "procrastinate",
             },

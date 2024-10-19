@@ -19,9 +19,6 @@ lint: # lint all files
 	@uv run ruff check --fix
 	@uv run ruff format
 
-test: # run tests
-	@uv run pytest
-
 migrations: # create migrations
 	@uv run python manage.py makemigrations --no-header
 
@@ -30,3 +27,12 @@ migrate: # apply migrations
 
 run: # run app
 	@uv run python manage.py runserver
+
+up: # run app in docker
+	@docker compose up --build --remove-orphans
+
+test: # run tests
+	@docker compose run --rm --build --remove-orphans test
+
+shell: # run shell
+	@docker compose run --rm --build --remove-orphans test bash

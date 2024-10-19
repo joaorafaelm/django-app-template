@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   app:
     build: .
@@ -20,3 +18,18 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: postgres
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    image: app_test
+    restart: unless-stopped
+    pull_policy: build
+    command: ["pytest"]
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/postgres
