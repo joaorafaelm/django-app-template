@@ -12,3 +12,4 @@ wheels/
 .pytest_cache
 db.sqlite
 .env
+.coverage
