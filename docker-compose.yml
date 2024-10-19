@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    image: app
+    restart: unless-stopped
+    pull_policy: build
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/postgres
+
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
