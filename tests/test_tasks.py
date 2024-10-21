@@ -4,7 +4,6 @@ def test_run_healthchecks(app):
     run_healthchecks(1)
 
 # def test_model():
-    
 #     from mixer.backend.django import mixer
 #     from customapp.models import User, UserMessage
 
